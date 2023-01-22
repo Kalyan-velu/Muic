@@ -1,0 +1,12 @@
+#muic {
+  width: 131px;
+  max-height: 61px;
+}
+#muic #rect1 {
+  width: 131px;
+  height: 61px;
+}
+
+#logo #m {
+  transition-delay: 5ms;
+}

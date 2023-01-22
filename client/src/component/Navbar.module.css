@@ -1,0 +1,30 @@
+@media (min-width: 320px) {
+  .navbar {
+    max-height: 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #111;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .logbtn {
+    background-color: rgba(12, 126, 31, 0.667);
+    color: #b038db;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.4rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .logbtn svg {
+    width: 20px;
+    height: 20px;
+  }
+}

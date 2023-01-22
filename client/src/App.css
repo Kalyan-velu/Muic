@@ -1,0 +1,16 @@
+:root{
+  --logo-color:#fff;
+  --font-size: 24px;
+  --font-small: 0.5rem;
+  --font-medium: 1rem;
+  --font-large: 1.3rem;
+
+  --gradient: #282829;
+
+  --padding: 2.4rem;
+  --padding-medium: 1.4rem;
+}
+
+.light-theme{
+  color: aliceblue;
+}
