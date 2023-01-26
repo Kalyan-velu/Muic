@@ -1,21 +1,19 @@
 import React from 'react'
 import '../../App.css'
+import UseAuth from '../../features/hooks/UseAuth'
 import { useNavigate } from 'react-router-dom'
 import LeftSidebar from '../../component/main/sidebar/LeftSidebar'
-import { useSelector } from 'react-redux'
 import Button from '../../component/buttons/Button'
-
-const UserProfile = () => {
+const Dashboard = ({ code }) => {
    const navigate = useNavigate()
-   const { currentUser: user } = useSelector(state => state.auth)
-   
+   const accessToken = UseAuth(code, navigate)
+
    const previous = () => {
       navigate(-1)
    }
    const next = () => {
       navigate(+1)
    }
-
    return (
       <div className={"main-container"}>
          <LeftSidebar />
@@ -25,12 +23,11 @@ const UserProfile = () => {
                <Button onClick={next} className='nav-btn'>Next</Button>
             </div>
             <div>
-               {user.display_name}
+               {accessToken}
             </div>
-            
          </div>
       </div>
    )
 }
 
-export default UserProfile
+export default Dashboard

@@ -14,11 +14,14 @@ const Login = async (req, res) => {
          refreshToken: body.refresh_token,
          expiresIn: body.expires_in,
       })
-
+      await spotifyApi.setAccessToken(body.access_token)
+      const { body: data } = await spotifyApi.getMe()
+      console.log(data)
       res.status(200).json({
          accessToken: body.access_token,
          refreshToken: body.refresh_token,
          expiresIn: body.expires_in,
+         user: { ...data }
       })
    } catch (error) {
       res.status(500).json({

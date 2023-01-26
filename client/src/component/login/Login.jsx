@@ -26,7 +26,20 @@ const Login = () => {
    //    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(" ")}&response_type=token&show_dialog=true`
    // }
    function handleClick() {
-      window.location.href = "https://accounts.spotify.com/authorize?client_id=c49237b0ff20491fbe3c2385288c0304&response_type=code&redirect_uri=http://localhost:5173/&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
+      const scope = ['streaming',
+               'user-read-email', 'user-read-private',
+               'playlist-read-private',
+               'playlist-read-collaborative',
+               'playlist-modify-private',
+               'playlist-modify-public',
+               'user-read-playback-state',
+               'user-modify-playback-state',
+               'user-read-currently-playing',
+               'user-read-playback-position',
+               'user-top-read',
+               'user-read-recently-played',
+            ]
+      window.location.href = `https://accounts.spotify.com/authorize?client_id=c49237b0ff20491fbe3c2385288c0304&response_type=code&redirect_uri=http://localhost:5173/&scope=${scope.join(" ")}`
    }
 
    return (

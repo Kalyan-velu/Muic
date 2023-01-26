@@ -1,9 +1,9 @@
 const express = require('express');
-const { Me } = require('../controllers/User');
-const {authMiddleware } = require('../middleware/AuthMiddleware');
+const { PlayList } = require('../controllers/User');
+const { authMiddleware } = require('../middleware/AuthMiddleware');
 
 const router = express.Router()
 
-router.get('/me',authMiddleware, Me)
+router.get('/playlist', authMiddleware, PlayList)
 
 module.exports = router

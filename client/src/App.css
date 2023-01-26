@@ -1,5 +1,5 @@
-:root{
-  --logo-color:#fff;
+:root {
+  --logo-color: #fff;
   --font-size: 24px;
   --font-small: 0.5rem;
   --font-medium: 1rem;
@@ -11,6 +11,19 @@
   --padding-medium: 1.4rem;
 }
 
-.light-theme{
+.light-theme {
   color: rgb(37, 38, 38);
+}
+
+@media (min-width: 786px) {
+  .main-container {
+    height: calc(100vh - 50px);
+    width: calc(100%);
+    margin: 50px auto auto auto;
+  }
+  .container {
+    margin-left: 313px;
+    width: calc(100% - 313px);
+    font-size: 0.1rem;
+  }
 }

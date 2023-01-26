@@ -1,0 +1,22 @@
+.left-sidebar {
+  min-height: calc(100vh - 50px);
+  position: fixed;
+  top: 49px;
+  left: 0;
+  bottom: 0;
+  min-width: 180px;
+  padding: 10px;
+  /* background-color: rgb(38, 20, 63); */
+  color: rgb(213, 209, 209, 55%);
+  overflow: scroll;
+}
+.left-sidebar ul {
+  list-style: none;
+}
+.playlist {
+  padding: 0.6rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.link {
+  font-weight: 600;
+}

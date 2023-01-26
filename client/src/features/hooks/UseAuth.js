@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useDispatch } from "react-redux"
-import { Me } from "../actions/UserActions"
 
 export default function useAuth(code,navigate) {
   const dispatch = useDispatch()
@@ -9,9 +8,11 @@ export default function useAuth(code,navigate) {
   const [refreshToken, setRefreshToken] = useState('')
   const [expiresIn, setExpiresIn] = useState('')
 
+  console.log(code)
   async function Login() {
     try {
       const { data } = await axios.post("http://localhost:8000/api/login", { code, })
+      console.log(data)
       setAccessToken(data.accessToken)
       setRefreshToken(data.refreshToken)
       setExpiresIn(data.expiresIn)
@@ -19,7 +20,7 @@ export default function useAuth(code,navigate) {
       navigate('/dashboard')
       dispatch({ type: "SET_REFRESH_TOKEN", payload: data.refreshToken })
       dispatch({ type: "SET_ACCCESS_TOKEN", payload: data.accessToken })
-      dispatch(Me())
+      dispatch({ type: "SET_CURRENT_USER", payload: data.user })
     } catch (error) {
       console.log(error)
     }
@@ -27,7 +28,7 @@ export default function useAuth(code,navigate) {
 
   useEffect(() => {
     Login()
-  }, [])
+  }, [code])
 
   useEffect(() => {
     if (!refreshToken || !expiresIn) return
