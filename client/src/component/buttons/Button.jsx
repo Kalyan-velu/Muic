@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Button = ({ className, onClick, children }) => {
+const Button = ({ className, onClick, children,title }) => {
    const style = {
       cursor: 'pointer',
       border: 'none'
    }
    return (
-      <button style={style} className={className} onClick={onClick} >{children}</button>
+      <button style={style} title={title} className={className} onClick={onClick} >{children}</button>
    )
 }
 

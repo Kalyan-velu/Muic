@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../buttons/Button';
 import ClickAwayListener from '../buttons/ClickAwayListener';
 import { Link } from '../buttons/Link';
+import {Navigate} from "../navigation/Navigate.jsx";
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false)
   const navigate = useNavigate()
   useEffect(() => {
-    if (!user) {
+    if (user===null) {
       navigate('/')
     }
   }, [user])
@@ -22,24 +23,20 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch({ type: "REMOVE_CURRENT_USER" })
   }
-  const previous = () => {
-    navigate(-1)
-  }
-  const next = () => {
-    navigate(+1)
-  }
+
   return (
     <ClickAwayListener onClickAway={() => setShow(false)}>
       <nav className={classes.navbar}>
+          <Navigate/>
           <div className={classes.logo}>
-            <Link to={'/'}><img src={Logo} /></Link>
+            <Link to={'/'}><img src={Logo}  alt={'logo'}/></Link>
           </div>
 
         {/* <div style={{ flexGrow: 1 }} /> */}
         {user &&
           <div className={classes.user}>
             <Button onClick={() => setShow(!show)}><FiLogOut /> </Button>
-            <Link to={`/profile/${user.id}`} className={classes.link}>
+            <Link to={`/profile/${user.id}`} className={classes.ulink}>
               {user.display_name.split(" ")[0]}
             </Link>
             <img loading='lazy' src={user.images[0].url} alt={""} />

@@ -1,0 +1,20 @@
+.btn-container{
+    position: relative;
+    width: 5rem;
+    z-index: 99;
+    background-color: inherit;
+
+    padding: 0.2rem;
+    left: 0.4rem;
+    /*top:0.4rem;*/
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0.3rem;
+}
+.nav-btn{
+    border: none;
+    background: #ffffff;
+    font-size: 1.5rem;
+    align-items: center;
+    border-radius: 50%;
+}

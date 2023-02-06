@@ -25,7 +25,7 @@ const PlayList = async (req, res) => {
    try {
       await spotifyApi.setAccessToken(token)
       const data = await spotifyApi.getUserPlaylists()
-      console.log(data)
+
       res.status(200).json(
          data.body
       )

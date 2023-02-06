@@ -3,28 +3,20 @@ import '../../App.css'
 import UseAuth from '../../features/hooks/UseAuth'
 import { useNavigate } from 'react-router-dom'
 import LeftSidebar from '../../component/main/sidebar/LeftSidebar'
-import Button from '../../component/buttons/Button'
+import {Navigate} from "../../component/navigation/Navigate.jsx";
+import TopSongs from "../../component/home/TopSongs.jsx";
+
 const Dashboard = ({ code }) => {
    const navigate = useNavigate()
    const accessToken = UseAuth(code, navigate)
 
-   const previous = () => {
-      navigate(-1)
-   }
-   const next = () => {
-      navigate(+1)
-   }
+
    return (
       <div className={"main-container"}>
-         <LeftSidebar />
+         {/*<LeftSidebar />*/}
          <div className='container'>
-            <div className='btn-container'>
-               <Button onClick={previous} className='nav-btn'>Back</Button>
-               <Button onClick={next} className='nav-btn'>Next</Button>
-            </div>
-            <div>
-               {accessToken}
-            </div>
+            <Navigate/>
+            <TopSongs/>
          </div>
       </div>
    )

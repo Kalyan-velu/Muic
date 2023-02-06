@@ -6,7 +6,7 @@
   --font-large: 1.3rem;
 
   --gradient: #282829;
-
+  --nav-bg:rgb(38, 20, 63);
   --padding: 2.4rem;
   --padding-medium: 1.4rem;
 }
@@ -14,14 +14,22 @@
 .light-theme {
   color: rgb(37, 38, 38);
 }
-
-@media (min-width: 786px) {
+@media (min-width: 320px) {
   .main-container {
     height: calc(100vh - 50px);
     width: calc(100%);
     margin: 50px auto auto auto;
   }
+  .container{
+    /*background-color: #282829;*/
+    min-height: calc(100vh - 5rem);
+    color: #131212;
+  }
+}
+@media (min-width: 786px) {
+
   .container {
+    /*background-color: #282829;*/
     margin-left: 313px;
     width: calc(100% - 313px);
     font-size: 0.1rem;

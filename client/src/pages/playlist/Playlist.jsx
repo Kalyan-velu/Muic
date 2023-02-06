@@ -1,28 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {Navigate} from "../../component/navigation/Navigate.jsx";
 import '../../App.css'
-import { useNavigate } from 'react-router-dom'
-import LeftSidebar from '../../component/main/sidebar/LeftSidebar'
-import PlayListDetails from '../../component/main/details/PlayListDetails'
-import Button from '../../component/buttons/Button'
+import UserPlayLists from "./UserPlayLists.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {getPlayList} from "../../features/actions/UserActions.js";
 const Playlist = () => {
-  const navigate = useNavigate()
-
-  const previous = () => {
-    navigate(-1)
-  }
-  const next = () => {
-    navigate(+1)
-  }
-
+    const dispatch=useDispatch()
+    const {playlists}=useSelector(state => state.user)
+    useEffect(()=>{
+        dispatch(getPlayList())
+    },[])
   return (
     <div className={"main-container"}>
-      <LeftSidebar />
       <div className='container'>
-        <div className='btn-container'>
-          <Button onClick={previous} className='nav-btn'>Back</Button>
-          <Button onClick={next} className='nav-btn'>Next</Button>
-        </div>
-        <PlayListDetails />
+        {/*<Navigate/>*/}
+          {playlists&&<UserPlayLists playlists={playlists}/>}
       </div>
     </div>
   )

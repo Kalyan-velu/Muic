@@ -5,6 +5,7 @@ import Home from '../pages/home/Home'
 import UserProfile from '../pages/profile/UserProfile'
 import { useSelector } from 'react-redux'
 import Playlist from '../pages/playlist/Playlist'
+import PlayListDetails from "../component/main/details/PlayListDetails.jsx";
 
 const AllRoutes = () => {
    const { code } = useSelector(state => state.auth)
@@ -13,7 +14,8 @@ const AllRoutes = () => {
          <Route path='/' element={code ? <Home code={code} /> : <Login />} />
          <Route path="/dashboard" element={code ? <Home code={code} /> : null} />
          <Route path="/profile/:id" element={<UserProfile />} />
-         <Route path="/playlist/:id" element={<Playlist />} />
+         <Route path="/playlist/:id" element={<PlayListDetails />} />
+         <Route path="/playlist" element={<Playlist />} />
       </Routes>
    )
 }
