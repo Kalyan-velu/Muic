@@ -19,3 +19,12 @@ export const getPlayList=()=>async(dispatch)=>{
       console.log(e)
    }
 }
+export const getNextPlayList=({next})=>async(dispatch)=>{
+   try {
+      const {data}=await api.post('/user/playlist',next)
+      console.log(data)
+      dispatch({type:'SET_USER_PLAYLISTS',payload:data})
+   } catch (e) {
+      console.log(e)
+   }
+}

@@ -7,12 +7,18 @@
 
   --gradient: #282829;
   --nav-bg:rgb(38, 20, 63);
+
+  --background-gradient-violet: linear-gradient(
+    90deg,
+    #3B1734,
+    #491D40
+  );
   --padding: 2.4rem;
   --padding-medium: 1.4rem;
 }
 
 .light-theme {
-  color: rgb(37, 38, 38);
+  color: var(--background-gradient-violet);
 }
 @media (min-width: 320px) {
   .main-container {
@@ -21,7 +27,7 @@
     margin: 50px auto auto auto;
   }
   .container{
-    /*background-color: #282829;*/
+    background:var(--background-gradient-violet) ;
     min-height: calc(100vh - 5rem);
     color: #131212;
   }

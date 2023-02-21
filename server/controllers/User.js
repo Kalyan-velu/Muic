@@ -1,5 +1,6 @@
-var SpotifyWebApi = require('spotify-web-api-node');
-var spotifyApi = new SpotifyWebApi();
+const SpotifyWebApi = require('spotify-web-api-node');
+const axios = require("axios");
+const spotifyApi = new SpotifyWebApi();
 
 // const Me = async (req, res) => {
 //    const token = req.token
@@ -24,10 +25,27 @@ const PlayList = async (req, res) => {
    console.log(token)
    try {
       await spotifyApi.setAccessToken(token)
-      const data = await spotifyApi.getUserPlaylists()
+      const data = await spotifyApi.getUserPlaylists( )
 
       res.status(200).json(
          data.body
+      )
+   } catch (e) {
+      console.log(e)
+      res.status(400).json({
+         message: e.message
+      })
+   }
+}
+const getNextPlayList = async (req, res) => {
+   const token = req.token
+   console.log(token)
+   try {
+      await spotifyApi.setAccessToken(token)
+      const data = await axios.get(req.next)
+
+      res.status(200).json(
+          data.body
       )
    } catch (e) {
       console.log(e)

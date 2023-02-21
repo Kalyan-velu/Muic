@@ -13,9 +13,8 @@ const Dashboard = ({ code }) => {
 
    return (
       <div className={"main-container"}>
-         {/*<LeftSidebar />*/}
+         <LeftSidebar />
          <div className='container'>
-            <Navigate/>
             <TopSongs/>
          </div>
       </div>
