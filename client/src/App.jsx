@@ -1,26 +1,22 @@
 import { useEffect } from 'react'
-import './App.css'
-import Navbar from './component/navbar/Navbar'
-import AllRoutes from './routes/AllRoutes'
-import {useDispatch, useSelector} from 'react-redux'
-import MobileNavbar from "./component/navbar/mobile/MobileNavbar.jsx";
+import {useDispatch} from 'react-redux'
+import AllRoutes from './routes'
+import CoreLayout from "./common/layouts/CoreLayout/CoreLayout.jsx";
 
 const code = new URLSearchParams(window.location.search).get('code')
 function App() {
   const dispatch = useDispatch()
-    const {code:cd}=useSelector(state => state.auth)
   useEffect(() => {
     if (code) {
       dispatch({ type: "SET_CODE", payload: code })
     }
-
   }, [dispatch, code])
 
   return (
     <div className="App">
-      <Navbar />
-      <AllRoutes code={code} />
-        {cd && <MobileNavbar/>}
+      <CoreLayout>
+        <AllRoutes />
+      </CoreLayout>
     </div>
   )
 }

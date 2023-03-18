@@ -1,8 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-
-import { AuthReducer } from "./AuthReducers";
 import  {UserReducer} from './UserReducer'
 
 const rootPersistConfig={
@@ -17,6 +15,5 @@ const userPersistConfig={
 }
 
 const rootReducer=combineReducers({
-   auth:persistReducer(userPersistConfig,UserReducer),
-   user
+   auth:persistReducer(userPersistConfig,UserReducer)
 })

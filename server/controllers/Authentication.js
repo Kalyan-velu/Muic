@@ -1,9 +1,9 @@
 // import axios from "axios"
-const spotifyWebApi = require('spotify-web-api-node')
+const SpotifyWebApi = require("spotify-web-api-node");
 const Login = async (req, res) => {
    const code = req.body.code
    try {
-      const spotifyApi = new spotifyWebApi({
+      const spotifyApi = new SpotifyWebApi({
          clientId: process.env.CLIENT_ID,
          clientSecret: process.env.CLIENT_SECRECT,
          redirectUri: process.env.REDIRECT_URI,

@@ -18,9 +18,9 @@ app.use(allowCrossDomain);
 app.use(express.json({ limit: "30mb", extended: true }))
 app.use(express.urlencoded({ limit: "30mb", extended: true }))
 
-app.use('/api', AuthRouter)
-app.use('/api', ArtistsRouter)
-app.use('/api/user', UserRouter)
+app.use('/api/v1', AuthRouter)
+app.use('/api/v1', ArtistsRouter)
+app.use('/api/v1/user', UserRouter)
 
 app.get('/', (req, res) => {
   res.json({

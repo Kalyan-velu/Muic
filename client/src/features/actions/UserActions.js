@@ -28,3 +28,9 @@ export const getNextPlayList=({next})=>async(dispatch)=>{
       console.log(e)
    }
 }
+
+export const LogOut=({navigate})=>async(dispatch)=>{
+   await dispatch({type:"REMOVE_CURRENT_USER"})
+   await dispatch({type:"REMOVE_CODE"})
+   navigate('/')
+}

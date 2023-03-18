@@ -11,13 +11,12 @@ export default function useAuth(code,navigate) {
   console.log(code)
   async function Login() {
     try {
-      const { data } = await axios.post("http://localhost:8000/api/login", { code, })
-      console.log(data)
+      const { data } = await axios.post("http://localhost:8000/api/v1/login", { code, })
       setAccessToken(data.accessToken)
       setRefreshToken(data.refreshToken)
       setExpiresIn(data.expiresIn)
       window.history.pushState({}, null)
-      navigate('/dashboard')
+      navigate('/discover')
       dispatch({ type: "SET_REFRESH_TOKEN", payload: data.refreshToken })
       dispatch({ type: "SET_ACCCESS_TOKEN", payload: data.accessToken })
       dispatch({ type: "SET_CURRENT_USER", payload: data.user })
@@ -27,26 +26,26 @@ export default function useAuth(code,navigate) {
   }
 
   useEffect(() => {
-    Login()
+    Login().then((r)=>{console.log(r)})
   }, [code])
 
   useEffect(() => {
     if (!refreshToken || !expiresIn) return
     const interval = setInterval(() => {
       axios
-        .post("http://localhost:8000/api/refresh", {
+        .post("http://localhost:8000/api/v1/refresh", {
           refreshToken,
         })
         .then(res => {
-          console.log(res)
+          console.log("Refresh Token")
           setAccessToken(res.data.accessToken)
           setExpiresIn(res.data.expiresIn)
           dispatch({ type: "SET_ACCCESS_TOKEN", payload: res.data.accessToken })
         })
         .catch(() => {
-          window.location = "/"
+          navigate('/')
         })
-    }, (expiresIn - 60) * 1000)
+    }, (expiresIn - 60))
 
     return () => clearInterval(interval)
   }, [refreshToken, expiresIn])
