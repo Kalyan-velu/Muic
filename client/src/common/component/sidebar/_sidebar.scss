@@ -63,8 +63,13 @@
     }
     }
 
-    >p{
+    &__link{
       margin: auto;
+      color: $link-c-dark;
+      transition: color 0.6s ease-in-out;
+      &:hover{
+        color: $link-selected;
+      }
       @media only screen and (max-width: 650px) {
         display: none;
       }
@@ -80,7 +85,7 @@
     display: flex;
     padding: 1rem;
     gap: 1rem;
-    transition: all 1.3ms ease-in-out;
+    transition: all 1s ease-in-out;
     color: rgba(30, 214, 94, 0.7);
     &:hover{
       background-color: rgba(30, 214, 94, 0.7);
