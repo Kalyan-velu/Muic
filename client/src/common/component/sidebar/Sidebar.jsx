@@ -8,12 +8,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './_sidebar.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {NavLink} from "../buttons/Link.jsx";
+import {Link,NavLink} from "../buttons/Link.jsx";
 import Avatar from "../avatar";
 import {motion} from "framer-motion";
 import {LogOut} from "../../../features/actions/UserActions.js";
-import {useNavigate} from "react-router-dom";
-import classes from "../../../routes/login/styles/Login.module.css";
+import { useNavigate} from "react-router-dom";
 
 const renderSidebarOptions = (link, icon, text = {}) => {
 return(
@@ -55,7 +54,9 @@ function Sidebar() {
                     name={user?.display_name}
                     url={user?.images[0]?.url}
                 />
-                <p>{user?.display_name}</p>
+                <Link className={'sidebar__profile__link'} to={`/user/${user?.id}`}>
+                    {user?.display_name}
+                </Link>
             </div>
             <div className="sidebar__options">
                 {renderSidebarOptions('/discover',faHeadphonesAlt,'Discover')}

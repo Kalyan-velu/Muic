@@ -20,6 +20,8 @@ export default function AllRoutes() {
             <Route path={'/'} element={<Login/>}/>
             <Route path={'/discover'} code={code} element={<Discover/>}/>
             <Route path={'/playlists'} code={code} element={<PlayLists/>}/>
+            <Route path={'/playlists/:id'} code={code} element={<PlayLists/>}/>
+            <Route path={'/user/:id'} code={code} element={<PlayLists/>}/>
         </Routes>
     )
 }
