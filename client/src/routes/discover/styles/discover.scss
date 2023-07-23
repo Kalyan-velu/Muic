@@ -1,0 +1,23 @@
+.discover{
+  height: calc(100% - 0.5rem);
+  width: 100%;
+  &__block{
+    width: 100%;
+    color: #D9D9D9;
+    font-size: large;
+    font-weight: 700;
+    padding: 0.5rem;
+
+    min-height: 7rem;
+    max-height: 13rem;
+    &__items{
+      display: flex;
+      flex-wrap: wrap-reverse;
+      color: #1ed760;
+    }
+    &__item{
+      height: 30px;
+      padding: 0.4rem;
+    }
+  }
+}

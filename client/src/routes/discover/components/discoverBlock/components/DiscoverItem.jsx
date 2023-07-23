@@ -1,7 +1,7 @@
-export default function DiscoverItem(){
+export default function DiscoverItem({item}){
     return(
-        <div>
-            Discover Item
+        <div className="discover__block__item">
+            <p>{item.name}</p>
         </div>
     )
 }

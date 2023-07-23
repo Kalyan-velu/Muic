@@ -39,7 +39,6 @@ const PlayList = async (req, res) => {
 }
 const getNextPlayList = async (req, res) => {
    const token = req.token
-   console.log(token)
    try {
       await spotifyApi.setAccessToken(token)
       const data = await axios.get(req.next)

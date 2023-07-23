@@ -13,7 +13,7 @@ function App() {
   }, [dispatch, code])
 
   return (
-    <div className="App">
+    <div className="app">
       <CoreLayout>
         <AllRoutes />
       </CoreLayout>

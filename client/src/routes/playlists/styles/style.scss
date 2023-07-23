@@ -1,0 +1,16 @@
+.playlist{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  &__details{
+    height:200px;
+    width:200px;
+
+    &__img{
+      img{
+        width:200px;
+      }
+    }
+  }
+}

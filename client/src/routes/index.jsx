@@ -7,7 +7,7 @@ import PlayLists from "./playlists/index.jsx";
 
 export default function AllRoutes() {
     const dispatch=useDispatch();
-    const {code,refreshToken}=useSelector(state => state.auth)
+    const {code,refreshToken}=useSelector(({auth}) => auth)
     React.useEffect(()=>{
         setTimeout(()=>{
             if(refreshToken===null){

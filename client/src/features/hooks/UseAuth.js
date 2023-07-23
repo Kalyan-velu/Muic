@@ -8,7 +8,6 @@ export default function useAuth(code,navigate) {
   const [refreshToken, setRefreshToken] = useState('')
   const [expiresIn, setExpiresIn] = useState('')
 
-  console.log(code)
   async function Login() {
     try {
       const { data } = await axios.post("http://localhost:8000/api/v1/login", { code, })
